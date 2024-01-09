@@ -1,0 +1,57 @@
+FROM ubuntu:20.04
+
+RUN echo "Don't use cache #2" > /.force_full_rebuild
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update --fix-missing
+
+RUN apt-get install -y \
+    software-properties-common
+
+RUN add-apt-repository -y \
+    ppa:ubuntu-toolchain-r/test
+
+RUN apt-get update
+
+RUN apt-get install -y \
+    build-essential \
+    g++ \
+    gcc-multilib
+
+RUN apt-get update --fix-missing
+RUN apt-get install -y \
+    git
+
+RUN apt-get install -y \
+    gcc-8 \
+    g++-8 \
+    gcc-11 \
+    g++-11
+
+RUN apt-get install -y \
+    python3 \
+    python3-pip
+
+RUN apt-get install -y \
+    openjdk-11-jre
+
+RUN apt-get install -y \
+    golang
+
+RUN apt-get update
+RUN apt-get update --fix-missing
+RUN apt-get install -y \
+    llvm-8-dev \
+    ragel \
+    bison
+
+RUN pip3 install PyYAML \
+                 pytz \
+                 docopt \
+                 requests \
+                 pytest
+
+RUN update-alternatives \
+    --install /usr/bin/gcc gcc /usr/bin/gcc-11 40 \
+    --slave /usr/bin/g++ g++ /usr/bin/g++-11

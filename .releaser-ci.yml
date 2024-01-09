@@ -1,0 +1,20 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - release
+
+deploy:
+  only:
+  - master
+  tags:
+  - docker
+  stage: release
+  script:
+  - >
+    curl -H "Authorization: Bearer ${TESTER_TOKEN}" -H "Content-Type: text/x-yaml; charset=utf-8" --data-binary @.course.yml https://db1.manytask.org/api/update_course_config
+  - >
+    curl -H "Authorization: Bearer ${TESTER_TOKEN}" -H "Content-Type: text/x-yaml; charset=utf-8" --data-binary @.deadlines.yml https://db1.manytask.org/api/update_deadlines
+  - docker pull cr.yandex/crp9onavos88ug32d5r2/grader/db1-build
+  - docker build -f testenv.docker -t cr.yandex/crp9onavos88ug32d5r2/grader/db1 .
+  - docker push cr.yandex/crp9onavos88ug32d5r2/grader/db1:latest

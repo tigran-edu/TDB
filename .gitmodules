@@ -1,0 +1,3 @@
+[submodule "grader"]
+	path = grader
+	url = git@gitlab.com:kitaetoya/shad-grader.git

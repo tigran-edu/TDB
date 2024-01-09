@@ -1,0 +1,20 @@
+name: db1
+
+# course
+deadlines: hard
+second_deadline_max: 0.5
+low_demand_bonus_bound: 0.25
+max_low_demand_bonus: 1.0
+
+# gitlab
+gitlab_url: https://gitlab.manytask.org
+default_branch: main
+course_group: db1
+public_repo: db1/public-2023-fall
+students_group: db1/students-fall-2023
+
+# manytask
+manytask_url: https://db1.manytask.org
+
+# info
+lms_url: https://lk.yandexdataschool.ru/courses/2023-autumn/7.1179-bd-part1/

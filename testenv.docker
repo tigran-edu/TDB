@@ -1,0 +1,11 @@
+FROM cr.yandex/crp9onavos88ug32d5r2/grader/db1-build:latest
+
+RUN echo not cache > .no_cache
+
+COPY . /opt/shad
+
+#RUN find /opt/shad | xargs chmod go+rwx
+
+#RUN chmod -R o-rwx /opt/shad/private
+
+#ENV GOCACHE=/opt/shad/gocache

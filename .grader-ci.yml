@@ -1,0 +1,6 @@
+grade:
+  image: cr.yandex/crp9onavos88ug32d5r2/grader/db1
+  only:
+    - /^submits/.*$/
+  script:
+    - cd /opt/shad && PYTHONPATH=grader python3 -m grader

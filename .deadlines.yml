@@ -1,0 +1,7 @@
+- group:    sql
+  start:    09-09-2023 18:00
+  deadline: 24-09-2023 23:59
+  tasks:
+    - task: sql
+      score: 200
+      url: https://gitlab.com/kitaetoya/shad-db1/-/tree/main/sql
